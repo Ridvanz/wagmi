@@ -2,16 +2,20 @@
 <script lang="ts">
     import SearchSelect from './SearchSelect.svelte';
   
-    // Example Twitter user list
-    let allUsers = [
-      { name: 'Elon Musk', handle: '@elonmusk' },
-      { name: 'Bill Gates', handle: '@BillGates' },
-      { name: 'Jeff Bezos', handle: '@JeffBezos' },
-      { name: 'Barack Obama', handle: '@BarackObama' },
-      { name: 'Taylor Swift', handle: '@taylorswift13' },
-      // Add more users as needed
-    ];
-  
+      let allUsers = [
+    { name: 'CZ Binance', handle: '@cz_binance' },          // CEO of Binance
+    { name: 'Vitalik Buterin', handle: '@VitalikButerin' },  // Co-founder of Ethereum
+    { name: 'PlanB', handle: '@100trillionUSD' },            // Bitcoin analyst, Stock-to-Flow model
+    { name: 'Michael Saylor', handle: '@saylor' },           // CEO of MicroStrategy, Bitcoin proponent
+    { name: 'Tyler Winklevoss', handle: '@tyler' },          // Co-founder of Gemini, Bitcoin investor
+    { name: 'Anthony Pompliano', handle: '@APompliano' },     // Crypto investor, podcast host
+    { name: 'Willy Woo', handle: '@woonomic' },              // On-chain Bitcoin analyst
+    { name: 'Peter McCormack', handle: '@PeterMcCormack' },   // Host of "What Bitcoin Did" podcast
+    { name: 'Raoul Pal', handle: '@RaoulGMI' },              // Founder of Real Vision, macro investor
+    { name: 'SBF', handle: '@SBF_FTX' },                     // Founder of FTX exchange
+    // Add more crypto KOLs as needed
+  ];
+
     let selectedUsers = [];
   
     // Function to get display label for each user

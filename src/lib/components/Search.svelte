@@ -53,7 +53,7 @@
   
     <!-- Selected tokens section -->
     <div class="border-t border-primary pt-2">
-      <h3 class="text-secondary3 mb-2">Selected Tokens:</h3>
+      <h3 class="text-tertiary mb-2">Selected Tokens:</h3>
       {#if selectedTokens.length === 0}
         <p class="text-secondary1">No tokens selected.</p>
       {/if}
@@ -62,7 +62,7 @@
           <li class="p-2 mb-2 bg-primary rounded flex justify-between items-center">
             <span>{token}</span>
             <button
-              class="bg-secondary text-white rounded p-1 ml-4 hover:bg-secondary3"
+              class="bg-secondary text-white rounded p-1 ml-4 hover:bg-tertiary"
               aria-label="Remove {token}"
               on:click={() => removeToken(token)}
             >

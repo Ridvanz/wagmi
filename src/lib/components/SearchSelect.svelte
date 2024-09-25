@@ -25,14 +25,14 @@
   </script>
   
   <!-- Search and select component container -->
-  <div class="flex flex-col h-full border rounded-lg p-4 bg-secondary-300 text-white">
+  <div class="flex flex-col h-full border-secondary-900 rounded-lg p-2 bg-gradient-to-b from-tertiary-900 via-tertiary-800 to-tertiary-900 text-white">
     <!-- Search bar -->
     <input
       type="text"
       {placeholder}
       bind:value={searchQuery}
       aria-label={placeholder}
-      class="p-2 mb-4 border-b-2 border-secondary bg-secondary-400  rounded outline-none focus:border-secondary2"
+      class="p-2 mb-4 border-b-2 border-tertiary bg-primary-900  rounded outline-none focus:border-secondary text-white"
     />
   
     <!-- Available items list -->
@@ -44,7 +44,7 @@
         {#each filteredItems as item}
           <li>
             <button
-              class="w-full text-left p-2 mb-2 bg-primary-400 rounded hover:bg-primary-300 transition"
+              class="w-full text-left p-2 mb-2 bg-gradient-to-tr from-tertiary-900 via-secondary-900 to-tertiary-900 rounded hover:bg-primary-300 transition border border-secondary-500"
               on:click={() => selectItem(item)}
             >
               {itemLabel(item)}
@@ -55,17 +55,17 @@
     </div>
   
     <!-- Selected items section -->
-    <div class="border-t border-primary pt-2 text-black">
-      <h3 class="text-secondary3 mb-2">Selected Items:</h3>
+    <div class="border-t border-secondary-700 pt-2 text-white">
+      <h3 class="text-gray-300 mb-2">Selected Items:</h3>
       {#if selectedItems.length === 0}
         <p class="text-secondary1">No items selected.</p>
       {/if}
       <ul>
         {#each selectedItems as item}
-          <li class="p-2 mb-2 bg-primary rounded flex justify-between items-center">
+          <li class="p-2 mb-2 bg-gradient-to-tr from-primary-900 to-primary-600 rounded flex justify-between items-center text-gray">
             <span>{itemLabel(item)}</span>
             <button
-              class="bg-secondary text-white rounded p-1 ml-4 hover:bg-secondary3"
+              class="bg-primary text-black rounded p-1 ml-4 hover:bg-tertiary"
               aria-label="Remove {itemLabel(item)}"
               on:click={() => removeItem(item)}
             >
