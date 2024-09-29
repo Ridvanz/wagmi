@@ -6,7 +6,7 @@
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-3">
         <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
           <div
-          class=" flex items-center bg-gradient-to-br from-tertiary-200 via-tertiary-100 to-tertiary-200 rounded-md pl-2 pr-2"
+          class=" flex items-center bg-gradient-to-br from-secondary-100 via-tertiary-100 to-primary-100 rounded-md pl-2 pr-2"
         >
           <img src={pik} class="h-12" alt="Flowbite Logo" />
         </div>
