@@ -15,14 +15,14 @@
     };
 </script>
 
-<div class="flex flex-wrap gap-2 p-2 bg-gradient-to-b from-tertiary-900 to-tertiary-800 rounded-lg w-full h-full">
+<div class="flex flex-wrap gap-2 p-2 bg-gradient-to-b from-tertiary-100 to-tertiary-200 rounded-lg w-full  h-full">
     <TokenStatCard label="Token Name" value={token.name} />
     <TokenStatCard label="Symbol" value={token.symbol} />
-    <TokenStatCard label="Price" value={token.price} colorClass="text-yellow-400" />
-    <TokenStatCard label="Market Cap" value={token.market_cap} colorClass="text-green-400" />
+    <TokenStatCard label="Price" value={token.price}  />
+    <TokenStatCard label="Market Cap" value={token.market_cap}  />
     <TokenStatCard label="Circulating Supply" value={token.circulating_supply} />
-    <TokenStatCard label="24h Volume" value={token.volume_24h} colorClass="text-blue-400" />
-    <TokenStatCard label="24h Change" value={token.change_24h} colorClass={token.change_24h.startsWith('-') ? 'text-red-400' : 'text-green-400'} />
+    <TokenStatCard label="24h Volume" value={token.volume_24h}  />
+    <TokenStatCard label="24h Change" value={token.change_24h}  />
     <TokenStatCard label="All Time High" value={token.all_time_high} />
     <TokenStatCard label="Rank" value={token.rank} />
     <TokenStatCard label="Dominance" value={token.dominance} />

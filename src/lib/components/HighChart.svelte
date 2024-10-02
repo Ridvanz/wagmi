@@ -33,6 +33,8 @@
             },
             height: '60%',
             lineWidth: 2,
+            lineColor: 'rgba(204, 204, 204, 0.2)', // Light gray dashed line
+            lineDashStyle: 'Dash',
             resize: {
               enabled: true
             }
@@ -48,7 +50,9 @@
             top: '65%',
             height: '35%',
             offset: 0,
-            lineWidth: 2
+            lineWidth: 2,
+            lineColor: 'rgba(204, 204, 204, 0.2)', // Light gray dashed line
+            lineDashStyle: 'Dash'
           }
         ],
         tooltip: {

@@ -36,25 +36,29 @@
       const flags = [
         {
           x: Date.UTC(2023, 8, 28),
-          title: '1'
+          title: ''
         },
         {
           x: Date.UTC(2023, 9, 29),
-          title: '2'
+          title: ''
         },
         {
           x: Date.UTC(2023, 11, 30),
-          title: '3'
-        }
+          title: ''
+        },
+        {
+          x: Date.UTC(2022, 12, 12),
+          title: ''
+        }        
       ];
   
-      // Initialize the Highcharts stock chart with white text and dark background
+      // Initialize the Highcharts stock chart with black text and transparent background
       const chart = Highcharts.stockChart(chartContainer, {
         chart: {
-          backgroundColor: '', 
+          backgroundColor: 'transparent',
           style: {
             fontFamily: 'sans-serif',
-            color: '#ffffff' // White text color
+            color: '#000000' // Black text color
           },
           events: {
             load: function () {
@@ -68,31 +72,35 @@
         xAxis: {
           labels: {
             style: {
-              color: 'white' // White text for x-axis dates
+              color: '#000000' // Black text for x-axis dates
             }
-          }
+          },
+          gridLineColor: 'rgba(209, 213, 219, 0.8)', // Light gray dashed
+          gridLineDashStyle: 'Dash'
         },
         yAxis: [
           {
             labels: {
               align: 'left',
-              style: { color: 'white' } // Black labels
+              style: { color: '#000000' } // Black labels
             },
             height: '80%',
             resize: {
               enabled: true
             },
-            gridLineColor: '#374151' // Tailwind's gray-700 equivalent
+            gridLineColor: 'rgba(209, 213, 219, 0.8)', // Light gray dashed
+            gridLineDashStyle: 'Dash'
           },
           {
             labels: {
               align: 'left',
-              style: { color: 'white' } // Black labels for volume axis
+              style: { color: '#000000' } // Black labels for volume axis
             },
             top: '80%',
             height: '20%',
             offset: 0,
-            gridLineColor: '#374151'
+            gridLineColor: 'rgba(209, 213, 219, 0.8)', // Light gray dashed
+            gridLineDashStyle: 'Dash'
           }
         ],
         tooltip: {
@@ -100,9 +108,8 @@
           headerShape: 'callout',
           borderWidth: 0,
           shadow: false,
-          backgroundColor: '#111827', // Dark tooltip background (Tailwind's gray-900)
           style: {
-            color: '#ffffff' // White text in tooltips
+            color: '#000000' // Black text in tooltips
           },
           positioner: function (width, height, point) {
             const chart = this.chart;
@@ -130,24 +137,17 @@
           }
         },
         series: [
-        //   {
-        //     type: 'line',
-        //     id: 'closed-line',
-        //     name: 'Closed',
-        //     data: closedPoints,
-        //     color: 'black' // Lighter orange for closed line (Tailwind's orange-400)
-        //   },
           {
             type: 'candlestick',
             id: 'aapl-ohlc',
             name: 'ETH Stock Price',
             data: ohlc,
             upColor: 'orange', // Light green for up days
-            upLineColor: 'orange',
-            upFillColor: 'orange',
+            upLineColor: 'ee7003',
+            upFillColor: 'ee7003',
             color: '#ee7003', // Light red for down days
-            lineColor: 'violet',
-            fillColor: 'violet'
+            lineColor: '#ee7003',
+            fillColor: '#ee7003'
           },
           {
             type: 'flags',
@@ -156,14 +156,14 @@
             data: flags,
             onSeries: 'aapl-ohlc',
             shape: 'circlepin',
-            width: 24,
-            height: 24,
-            y: -75,
-            color: 'white', // Lighter orange for flags (Tailwind's orange-400)
-            fillColor: '#ee7003',
+            width: 12,
+            height: 12,
+            y: -50,
+            color: '#000000', 
+            fillColor: 'lightgreen',
             borderColor: 'red',
             style: {
-              color: 'white' // Black text for flags
+              color: '#000000' // Black text for flags
             },
             states: {
               hover: {
@@ -179,7 +179,7 @@
             name: 'ETH Volume',
             data: volume,
             yAxis: 1,
-            color: 'violet' // Lighter orange for volume (Tailwind's orange-400)
+            color: '#ee7003' // Lighter orange for volume (Tailwind's orange-400)
           }
         ],
         responsive: {
@@ -207,7 +207,7 @@
           },
           labels: {
             style: {
-              color: 'white' // White text for navigator
+              color: '#000000' // Black text for navigator
             }
           }
         },
@@ -220,12 +220,12 @@
           buttonBackgroundColor: '#f7d2c4', // Light orange scrollbar buttons background
           buttonBorderWidth: 1,
           buttonBorderRadius: 5,
-          trackBackgroundColor: '#f7d2c4', // Light orange scrollbar track
+          trackBackgroundColor: 'rgba(247, 210, 196, 0)', // Transparent scrollbar track
           trackBorderWidth: 1,
           trackBorderRadius: 5,
           labels: {
             style: {
-              color: 'white' // White text for scrollbar
+              color: '#000000' // Black text for scrollbar
             }
           }
         }

@@ -3,9 +3,9 @@
 </script>
 
 <div class="relative h-full w-full max-h-full overflow-y-auto shadow-md sm:rounded-lg">
-	<table class="w-full text-sm text-left text-white dark:text-gray-400">
+	<table class="w-full text-sm text-left text-tertiary dark:text-gray-400">
 		<thead
-			class="text-xs text-white uppercase bg-gradient-to-b from-primary-700 to-secondary-900 sticky top-0"
+			class="text-xs text-tertiary uppercase bg-gradient-to-b from-primary-100 via-white to-white sticky top-0"
 		>
 			<tr>
 				<th class="p-4">
@@ -25,7 +25,7 @@
 		<tbody>
 			{#each tweets as tweet}
 				<tr
-					class="bg-gradient from-secondary-700 to-secondary-900 border-b border-secondary-700 hover:bg-gray-700 dark:hover:bg-gray-600"
+					class="bg-gradient from-secondary-200 to-secondary-100 border-b border-secondary-200 hover:bg-gray-200 "
 				>
 					<td class="p-4">
 						<div class="flex items-center">
@@ -39,7 +39,7 @@
 					<td class="px-6 py-2">{tweet.retweets}</td>
 					<td class="px-6 py-2">{tweet.sentiment}</td>
 					<td class="px-6 py-2"
-						><div class = "flex justify-center rounded" style={`background-color: hsl(${(tweet.score + 1) * -120}, 100%, 30%)`}>
+						><div class = "flex justify-center rounded text-gray-100" style={`background-color: hsl(${(tweet.score + 1) * -120}, 100%, 30%)`}>
                             {tweet.score}
                           </div></td
 					>

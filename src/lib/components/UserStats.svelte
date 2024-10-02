@@ -17,15 +17,15 @@
     };
 </script>
 
-<div class="flex flex-wrap gap-2 p-2 bg-gradient-to-b from-tertiary-900 to-tertiary-800 rounded-lg w-full h-full">
+<div class="flex flex-wrap gap-2 p-2 bg-gradient-to-b from-tertiary-100 to-tertiary-200 rounded-lg w-full h-full">
     <StatCard label="Followers" value={user.followers} />
-    <StatCard label="Following" value={user.following} colorClass="text-yellow-400"/>
+    <StatCard label="Following" value={user.following} />
     <StatCard label="Tweets" value={user.tweets} />
     <StatCard label="Likes" value={user.likes} />
-    <StatCard label="Retweets" value={user.retweets} colorClass="text-green-400"/>
+    <StatCard label="Retweets" value={user.retweets} />
     <StatCard label="Mentions" value={user.mentions} />
-    <StatCard label="Profile Visits" value={user.profile_visits} colorClass="text-purple-400"/>
+    <StatCard label="Profile Visits" value={user.profile_visits} />
     <StatCard label="Verified Status" value={user.verified ? 'Yes' : 'No'} />
-    <StatCard label="Bookmarks" value={user.bookmarks} colorClass="text-blue-400" />
+    <StatCard label="Bookmarks" value={user.bookmarks}  />
     <StatCard label="Media Posts" value={user.media_posts} />
 </div>
