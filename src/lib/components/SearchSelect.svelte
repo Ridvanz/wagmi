@@ -26,66 +26,79 @@
 </script>
 
 <!-- Search and select component container -->
-<div
-  class="flex flex-col h-full border-secondary-100 rounded-lg p-2 bg-gradient-to-b from-tertiary-200 via-tertiary-100 to-tertiary-200 text-tertiary"
->
-  <!-- Search bar -->
-  <input
-    type="text"
-    {placeholder}
-    bind:value={searchQuery}
-    aria-label={placeholder}
-    class="p-2 mb-4 border-b-2 border-tertiary bg-tertiary-100 rounded outline-none focus:border-secondary text-tertiary"
-  />
+<div class="flex flex-col h-full">
+  <div class="flex flex-col flex-grow border w-full border-secondary-300 rounded-xl">
+    <!-- Search bar -->
+    <div class="w-full px-2">
+      <input
+        type="text"
+        {placeholder}
+        bind:value={searchQuery}
+        aria-label={placeholder}
+        class="w-full mt-2 bg-white rounded-xl outline-none focus:border-primary text-tertiary"
+      />
+    </div>
 
-  <!-- Available items list -->
-  <div class="flex-1 overflow-auto mb-4">
-    {#if filteredItems.length === 0}
-      <p class="text-secondary1">No items found.</p>
-    {/if}
-    <ul>
-      {#each filteredItems as item}
-        <li>
-          <button
-            class="w-full text-left p-1 mb-1 bg-gradient-to-tr from-secondary-300 via-secondary-100 to-tertiary-200 rounded hover:bg-primary-300 transition border border-secondary-500 flex items-center"
-            on:click={() => selectItem(item)}
-          >
+<!-- Available items list -->
+<div class="flex-1 overflow-auto m-2">
+  {#if filteredItems.length === 0}
+    <p class="text-secondary1">No items found.</p>
+  {/if}
+  <ul>
+    {#each filteredItems as item}
+      <li>
+        <button
+          class="w-full text-left p-2 mb-1 rounded-lg shadow-md hover:bg-primary-300 transition border-b border-secondary-300 flex items-center justify-between"
+          on:click={() => selectItem(item)}
+        >
+          <!-- Left side: Icon and Token Name -->
+          <div class="flex items-center flex-grow">
             {#if itemIcon(item)}
               <img src={itemIcon(item)} alt="{itemLabel(item)} icon" class="w-6 h-6 mr-2" />
             {/if}
-            <span>{itemLabel(item)}</span>
-          </button>
-        </li>
-      {/each}
-    </ul>
+            <span>{itemLabel(item).split(' (')[0]}</span>
+          </div>
+          
+          <!-- Right side: Token Ticker -->
+          <span class="ml-2">{itemLabel(item).match(/\(([^)]+)\)/)[1]}</span>
+        </button>
+      </li>
+    {/each}
+  </ul>
+</div>
+
   </div>
 
-  <!-- Selected items section -->
-  <div class="border-t border-secondary-700 pt-2 text-tertiary">
-    <h3 class="text-tertiary mb-2">Selected Items:</h3>
-    {#if selectedItems.length === 0}
-      <p class="text-secondary1">No items selected.</p>
-    {/if}
-    <ul>
-      {#each selectedItems as item}
-        <li
-          class="p-1 mb-1 bg-gradient-to-tr from-secondary-100 to-primary-100 rounded flex justify-between items-center text-gray"
-        >
-          <span class="flex items-center">
-            {#if itemIcon(item)}
-              <img src={itemIcon(item)} alt="{itemLabel(item)} icon" class="w-6 h-6 mr-2" />
-            {/if}
-            <span>{itemLabel(item)}</span>
-          </span>
-          <button
-            class="bg-primary text-black rounded p-1 ml-4 hover:bg-tertiary"
-            aria-label="Remove {itemLabel(item)}"
-            on:click={() => removeItem(item)}
+  <!-- Spacer to push the Selected Items section to the bottom -->
+  <div class="mt-auto">
+    <h3 class="text-black my-2">Selected Items:</h3>
+
+    <!-- Selected items section -->
+    <div class="border rounded-xl border-secondary-300 text-tertiary w-full p-4">
+      {#if selectedItems.length === 0}
+        <p class="text-tertiary">No items selected.</p>
+      {/if}
+      <ul>
+        {#each selectedItems as item}
+          <li
+            class="p-1 mb-1  rounded flex justify-between items-center text-gray"
           >
-            Remove
-          </button>
-        </li>
-      {/each}
-    </ul>
+            <span class="flex items-center">
+              {#if itemIcon(item)}
+                <img src={itemIcon(item)} alt="{itemLabel(item)} icon" class="w-6 h-6 mr-2" />
+              {/if}
+              <span>{itemLabel(item).split(' (')[0]}</span>
+            </span>
+            <button
+              class="bg-primary-500 text-black rounded px-6 py-2 ml-2 text-white hover:bg-tertiary"
+              aria-label="Remove {itemLabel(item)}"
+              on:click={() => removeItem(item)}
+            >
+              Remove
+            </button>
+          </li>
+        {/each}
+      </ul>
+    </div>
   </div>
 </div>

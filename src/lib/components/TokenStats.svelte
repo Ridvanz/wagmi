@@ -15,7 +15,7 @@
     };
 </script>
 
-<div class="flex flex-wrap gap-2 p-2 bg-gradient-to-b from-tertiary-100 to-tertiary-200 rounded-lg w-full  h-full">
+<div class="flex flex-wrap gap-2 p-2  rounded-lg w-full  h-full">
     <TokenStatCard label="Token Name" value={token.name} />
     <TokenStatCard label="Symbol" value={token.symbol} />
     <TokenStatCard label="Price" value={token.price}  />

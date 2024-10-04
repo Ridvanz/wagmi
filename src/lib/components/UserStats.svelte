@@ -17,7 +17,7 @@
     };
 </script>
 
-<div class="flex flex-wrap gap-2 p-2 bg-gradient-to-b from-tertiary-100 to-tertiary-200 rounded-lg w-full h-full">
+<div class="flex flex-wrap gap-2 p-2 rounded-lg w-full h-full">
     <StatCard label="Followers" value={user.followers} />
     <StatCard label="Following" value={user.following} />
     <StatCard label="Tweets" value={user.tweets} />
