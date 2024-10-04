@@ -1,6 +1,10 @@
 <script>
 	export let tweets = [];
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> c6cf759 (new)
 	function getBackgroundColor(score) {
 		// Dark orange when score is 1 -> HSL(30, 100%, 50%)
 		// White when score is 0 -> HSL(0, 0%, 100%)
@@ -24,13 +28,22 @@
 		const lightness = score >= 0 ? 100 - score * 50 : 100 + score * 50;
 		return lightness > 70 ? 'black' : 'white';
 	}
+<<<<<<< HEAD
 	import { hoveredIndex } from '$lib/stores/hoverStore';
 
+=======
+>>>>>>> c6cf759 (new)
 </script>
 
 <div class="relative h-full w-full max-h-full overflow-y-auto shadow-md sm:rounded-lg">
 	<table class="w-full text-sm text-left text-tertiary dark:text-gray-400">
+<<<<<<< HEAD
 		<thead class="text-xs text-tertiary uppercase bg-gray-100 sticky top-0">
+=======
+		<thead
+			class="text-xs text-tertiary uppercase bg-gray-100 dark:bg-gray-700 sticky top-0"
+		>
+>>>>>>> c6cf759 (new)
 			<tr>
 				<th class="p-4"> </th>
 				<th class="px-6 py-3">Username</th>
@@ -43,11 +56,15 @@
 		</thead>
 		<tbody>
 			{#each tweets as tweet}
+<<<<<<< HEAD
 				<tr
 					class="border-b border-secondary-200 hover:bg-gray-200"
 					on:mouseenter={() => hoveredIndex.set(tweet.id)}
 					on:mouseleave={() => hoveredIndex.set(null)}
 				>
+=======
+				<tr class="border-b border-secondary-200 hover:bg-gray-200">
+>>>>>>> c6cf759 (new)
 					<td class="p-4">
 						<div class="flex items-center">
 							<!-- <input id="checkbox-{tweet.id}" type="checkbox" class="w-4 h-4"> -->
@@ -60,7 +77,11 @@
 					<td class="px-6 py-2">{tweet.retweets}</td>
 					<td class="px-6 py-2">{tweet.sentiment}</td>
 					<td class="px-6 py-2">
+<<<<<<< HEAD
 						<div
+=======
+						<div 
+>>>>>>> c6cf759 (new)
 							class="flex justify-center rounded p-2"
 							style={`background-color: ${getBackgroundColor(tweet.score)}; color: ${getTextColor(tweet.score)}`}
 						>
