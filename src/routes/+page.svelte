@@ -12,6 +12,9 @@
 	import UserStats from '$lib/components/UserStats.svelte';
 	import TokenStats from '$lib/components/TokenStats.svelte';
 	import Chart from '$lib/components/Chart.svelte';
+	import { hoveredIndex } from '$lib/stores/hoverStore';
+
+
 </script>
 
 <!-- <div class="transform origin-center  "> -->
@@ -26,12 +29,14 @@
 	>
 	
 		<Navbar />
+
 	</header>
 
 	<!-- Token Searcher (Left side) -->
 	<aside
 		class="col-start-1 col-end-3 row-start-2 row-end-8 rounded-xl ml-4  shadow-secondary-500/50"
 	>
+{$hoveredIndex}
 		<TokenSelector />
 	</aside>
 
@@ -39,6 +44,7 @@
 	<section
 		class="col-start-1 col-end-3 row-start-8 row-end-12  rounded-xl ml-4  overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
 	>
+	
 		<TokenStats />
 	</section>
 
@@ -77,6 +83,7 @@
 	<!-- Footer (Full width) -->
 	<footer class="col-start-1 col-end-13 row-start-auto row-end-auto self-end lg from-tertiary-200 via-tertiary-100 to-tertiary-200 border-primary shadow-sm shadow-secondary-500/50">
 		<div class="">
+
 			<Footer />
 			<div></div>
 		</div>

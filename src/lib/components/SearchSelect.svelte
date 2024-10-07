@@ -60,7 +60,9 @@
           </div>
           
           <!-- Right side: Token Ticker -->
-          <span class="ml-2">{itemLabel(item).match(/\(([^)]+)\)/)[1]}</span>
+          {#if itemLabel(item)?.match(/\(([^)]+)\)/)}
+            <span class="ml-2">{itemLabel(item)?.match(/\(([^)]+)\)/)?.[1]}</span>
+          {/if}
         </button>
       </li>
     {/each}
@@ -90,7 +92,7 @@
               <span>{itemLabel(item).split(' (')[0]}</span>
             </span>
             <button
-              class="bg-primary-500 text-black rounded px-6 py-2 ml-2 text-white hover:bg-tertiary"
+              class="bg-primary-500 text-black rounded px-6 py-2 ml-2  hover:bg-tertiary"
               aria-label="Remove {itemLabel(item)}"
               on:click={() => removeItem(item)}
             >

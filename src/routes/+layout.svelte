@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  // import { onMount } from 'svelte';
   import "../app.postcss"; // Assuming this is for your global styles
 
   // onMount(() => {

@@ -4,4 +4,5 @@
 
 <main>
     <ComponentA />
+     <!-- test -->
 </main>

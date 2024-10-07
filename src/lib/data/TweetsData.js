@@ -8,6 +8,7 @@ export const tweetsData = [
         retweets: 500,
         sentiment: 'Positive',
         score: 0.85,
+        title: '', x: Date.UTC(2023, 0, 14), // January 14, 2023
     },
     {
         id: 2,
@@ -17,6 +18,7 @@ export const tweetsData = [
         retweets: 450,
         sentiment: 'Positive',
         score: 0.75,
+        title: '', x: Date.UTC(2023, 1, 5), // February 5, 2023
     },
     {
         id: 3,
@@ -26,6 +28,7 @@ export const tweetsData = [
         retweets: 300,
         sentiment: 'Neutral',
         score: 0.1,
+        title: '', x: Date.UTC(2023, 1, 28), // February 28, 2023
     },
     {
         id: 4,
@@ -35,6 +38,7 @@ export const tweetsData = [
         retweets: 800,
         sentiment: 'Positive',
         score: 0.9,
+        title: '', x: Date.UTC(2023, 2, 16), // March 16, 2023
     },
     {
         id: 5,
@@ -44,6 +48,7 @@ export const tweetsData = [
         retweets: 350,
         sentiment: 'Positive',
         score: 0.7,
+        title: '', x: Date.UTC(2023, 3, 8), // April 8, 2023
     },
     {
         id: 6,
@@ -53,6 +58,7 @@ export const tweetsData = [
         retweets: 400,
         sentiment: 'Positive',
         score: 0.8,
+        title: '', x: Date.UTC(2023, 3, 25), // April 25, 2023
     },
     {
         id: 7,
@@ -62,6 +68,7 @@ export const tweetsData = [
         retweets: 250,
         sentiment: 'Neutral',
         score: 0.2,
+        title: '', x: Date.UTC(2023, 4, 10), // May 10, 2023
     },
     {
         id: 8,
@@ -71,6 +78,7 @@ export const tweetsData = [
         retweets: 380,
         sentiment: 'Positive',
         score: 0.9,
+        title: '', x: Date.UTC(2023, 5, 1), // June 1, 2023
     },
     {
         id: 9,
@@ -80,6 +88,7 @@ export const tweetsData = [
         retweets: 200,
         sentiment: 'Negative',
         score: -0.6,
+        title: '', x: Date.UTC(2023, 5, 15), // June 15, 2023
     },
     {
         id: 10,
@@ -89,6 +98,7 @@ export const tweetsData = [
         retweets: 2000,
         sentiment: 'Positive',
         score: 0.95,
+        title: '', x: Date.UTC(2023, 6, 2), // July 2, 2023
     },
     {
         id: 11,
@@ -98,6 +108,7 @@ export const tweetsData = [
         retweets: 320,
         sentiment: 'Positive',
         score: 0.7,
+        title: '', x: Date.UTC(2023, 6, 25), // July 25, 2023
     },
     {
         id: 12,
@@ -107,6 +118,7 @@ export const tweetsData = [
         retweets: 280,
         sentiment: 'Neutral',
         score: 0.3,
+        title: '', x: Date.UTC(2023, 7, 14), // August 14, 2023
     },
     {
         id: 13,
@@ -116,6 +128,7 @@ export const tweetsData = [
         retweets: 400,
         sentiment: 'Neutral',
         score: 0.1,
+        title: '', x: Date.UTC(2023, 8, 3), // September 3, 2023
     },
     {
         id: 14,
@@ -125,6 +138,7 @@ export const tweetsData = [
         retweets: 230,
         sentiment: 'Neutral',
         score: 0.2,
+        title: '', x: Date.UTC(2023, 8, 20), // September 20, 2023
     },
     {
         id: 15,
@@ -134,6 +148,7 @@ export const tweetsData = [
         retweets: 260,
         sentiment: 'Neutral',
         score: 0.4,
+        title: '', x: Date.UTC(2023, 9, 5), // October 5, 2023
     },
     {
         id: 16,
@@ -143,6 +158,7 @@ export const tweetsData = [
         retweets: 520,
         sentiment: 'Positive',
         score: 0.85,
+        title: '', x: Date.UTC(2023, 9, 15), // October 15, 2023
     },
     {
         id: 17,
@@ -152,6 +168,7 @@ export const tweetsData = [
         retweets: 310,
         sentiment: 'Positive',
         score: 0.75,
+        title: '', x: Date.UTC(2023, 10, 2), // November 2, 2023
     },
     {
         id: 18,
@@ -161,6 +178,7 @@ export const tweetsData = [
         retweets: 340,
         sentiment: 'Positive',
         score: 0.7,
+        title: '', x: Date.UTC(2023, 10, 16), // November 16, 2023
     },
     {
         id: 19,
@@ -170,6 +188,7 @@ export const tweetsData = [
         retweets: 290,
         sentiment: 'Neutral',
         score: 0.3,
+        title: '', x: Date.UTC(2023, 11, 5), // December 5, 2023
     },
     {
         id: 20,
@@ -179,5 +198,6 @@ export const tweetsData = [
         retweets: 370,
         sentiment: 'Positive',
         score: 0.85,
+        title: '', x: Date.UTC(2023, 11, 20), // December 20, 2023
     },
 ];
