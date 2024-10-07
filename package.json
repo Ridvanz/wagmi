@@ -33,7 +33,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"clsx": "^2.1.1",
 		"flowbite": "^2.5.1",
-		"highcharts": "^11.4.8"
+		"highcharts": "^11.4.8",
+		"tailwind-merge": "^2.5.3",
+		"tailwind-variants": "^0.2.1"
 	}
 }

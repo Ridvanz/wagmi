@@ -17,65 +17,63 @@
 <!-- <div class="transform origin-center  "> -->
 
 <!-- <div class="grid grid-cols-12 grid-rows-12 place-content-stretch h-screen w-screen"> -->
-<div
-	class="grid grid-cols-12 grid-rows-12 gap-4  h-screen w-screen max-h-screen max-w-screen content-stretch bg-white"
->
+<div class="flex flex-col gap-4 h-screen w-screen max-w-screen content-stretch bg-white">
 	<!-- Navbar (Full width) -->
-	<header
-		class="col-start-1 col-end-13 row-start-1 row-end-1  h-full   bg-black "
-	>
-	
+	<header class="bg-black">
 		<Navbar />
 	</header>
 
 	<!-- Token Searcher (Left side) -->
-	<aside
-		class="col-start-1 col-end-3 row-start-2 row-end-8 rounded-xl ml-4  shadow-secondary-500/50"
-	>
-		<TokenSelector />
-	</aside>
+	<div class="flex flex-col lg:flex-row h-screen min-h-40 gap-4">
+		<div class="flex flex-col gap-4">
+			<!-- <div class="flex flex-col"> -->
+			<div class="rounded-xl ml-4 shadow-secondary-500/50">
+				<TokenSelector />
+			</div>
 
-	<!-- Crypto Stats (Left side, below Token Searcher) -->
-	<section
-		class="col-start-1 col-end-3 row-start-8 row-end-12  rounded-xl ml-4  overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
-	>
-		<TokenStats />
-	</section>
+			<!-- Crypto Stats (Left side, below Token Searcher) -->
+			<section
+				class=" rounded-xl ml-4 overflow-y-auto border-primary shadow-sm shadow-secondary-500/50 bg-blue-500"
+			>
+				<TokenStats />
+			</section>
+		</div>
 
-	<!-- Searcher (Right side) -->
-	<aside
-		class="col-start-11 col-end-13 row-start-2 row-end-8   rounded-xl mr-4  shadow-secondary-500/50"
-	>
-		<UserSelector />
-	</aside>
+		<div class="flex flex-col">
+			<!-- Main Chart (Center) -->
+			<main class="rounded-xl shadow-sm shadow-secondary-500/50">
+				<Chart />
+			</main>
 
-	<!-- Twitter Post (Right side, below Searcher) -->
-	<section
-		class="col-start-11 col-end-13 row-start-8 row-end-12 rounded-xl mr-4 overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
-	>
-		<UserStats />
-	</section>
+			<!-- Data Table (Center, below Main Chart) -->
+			<section class="rounded-xl shadow-sm shadow-secondary-500/50 bg-green-500">
+				<!-- <Table /> -->
 
-	<!-- Main Chart (Center) -->
-	<main
-		class="col-span-8 row-span-6 rounded-xl    shadow-sm shadow-secondary-500/50"
-	>
-		<Chart />
-	</main>
+				<TweetsTable tweets={tweetsData} />
 
-	<!-- Data Table (Center, below Main Chart) -->
-	<section
-		class="col-span-8 row-span-4 rounded-xl   shadow-sm shadow-secondary-500/50"
-	>
-		<!-- <Table /> -->
+				<!-- <Carousel /> -->
+			</section>
+		</div>
 
-		<TweetsTable tweets={tweetsData} />
+		<!-- Searcher (Right side) -->
+		<div class="flex flex-col">
+			<aside class=" rounded-xl mr-4 shadow-secondary-500/50 bg-red-500">
+				<UserSelector />
+			</aside>
 
-		<!-- <Carousel /> -->
-	</section>
+			<!-- Twitter Post (Right side, below Searcher) -->
+			<section
+				class="crounded-xl mr-4 overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
+			>
+				<UserStats />
+			</section>
+		</div>
+	</div>
 
 	<!-- Footer (Full width) -->
-	<footer class="col-start-1 col-end-13 row-start-auto row-end-auto self-end lg from-tertiary-200 via-tertiary-100 to-tertiary-200 border-primary shadow-sm shadow-secondary-500/50">
+	<footer
+		class="col-start-1 col-end-13 row-start-auto row-end-auto self-end lg from-tertiary-200 via-tertiary-100 to-tertiary-200 border-primary shadow-sm shadow-secondary-500/50"
+	>
 		<div class="">
 			<Footer />
 			<div></div>
