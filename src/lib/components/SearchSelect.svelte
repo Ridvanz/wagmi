@@ -92,11 +92,7 @@
               <span>{itemLabel(item).split(' (')[0]}</span>
             </span>
             <button
-<<<<<<< HEAD
               class="bg-primary-500 text-black rounded px-6 py-2 ml-2  hover:bg-tertiary"
-=======
-              class="bg-primary-500 text-black rounded px-6 py-2 ml-2 text-white hover:bg-tertiary"
->>>>>>> c6cf759 (new)
               aria-label="Remove {itemLabel(item)}"
               on:click={() => removeItem(item)}
             >
