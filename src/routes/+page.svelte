@@ -17,15 +17,15 @@
 <!-- <div class="transform origin-center  "> -->
 
 <!-- <div class="grid grid-cols-12 grid-rows-12 place-content-stretch h-screen w-screen"> -->
-<div class="flex flex-col gap-4 h-screen w-screen max-w-screen content-stretch bg-white">
+<div class="flex flex-col gap-4 h-screen w-screen max-w-screen  bg-white">
 	<!-- Navbar (Full width) -->
 	<header class="bg-black">
 		<Navbar />
 	</header>
 
 	<!-- Token Searcher (Left side) -->
-	<div class="flex flex-col lg:flex-row h-screen min-h-40 gap-4">
-		<div class="flex flex-col gap-4">
+	<div class="flex flex-col lg:flex-row min-h-40 gap-6">
+		<div class="flex  flex-1 flex-col gap-4">
 			<!-- <div class="flex flex-col"> -->
 			<div class="rounded-xl ml-4 shadow-secondary-500/50">
 				<TokenSelector />
@@ -33,20 +33,20 @@
 
 			<!-- Crypto Stats (Left side, below Token Searcher) -->
 			<section
-				class=" rounded-xl ml-4 overflow-y-auto border-primary shadow-sm shadow-secondary-500/50 bg-blue-500"
+				class=" rounded-xl ml-4 overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
 			>
 				<TokenStats />
 			</section>
 		</div>
 
-		<div class="flex flex-col">
+		<div class="flex flex-[3] flex-col">
 			<!-- Main Chart (Center) -->
 			<main class="rounded-xl shadow-sm shadow-secondary-500/50">
 				<Chart />
 			</main>
 
 			<!-- Data Table (Center, below Main Chart) -->
-			<section class="rounded-xl shadow-sm shadow-secondary-500/50 bg-green-500">
+			<section class="rounded-xl shadow-sm shadow-secondary-500/50 ">
 				<!-- <Table /> -->
 
 				<TweetsTable tweets={tweetsData} />
@@ -56,8 +56,8 @@
 		</div>
 
 		<!-- Searcher (Right side) -->
-		<div class="flex flex-col">
-			<aside class=" rounded-xl mr-4 shadow-secondary-500/50 bg-red-500">
+		<div class="flex flex-1 gap-4 flex-col">
+			<aside class=" rounded-xl mr-4 shadow-secondary-500/50 ">
 				<UserSelector />
 			</aside>
 
@@ -72,7 +72,7 @@
 
 	<!-- Footer (Full width) -->
 	<footer
-		class="col-start-1 col-end-13 row-start-auto row-end-auto self-end lg from-tertiary-200 via-tertiary-100 to-tertiary-200 border-primary shadow-sm shadow-secondary-500/50"
+		class="from-tertiary-200 via-tertiary-100 to-tertiary-200 border-primary shadow-sm shadow-secondary-500/50"
 	>
 		<div class="">
 			<Footer />
