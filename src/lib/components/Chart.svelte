@@ -1,11 +1,22 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import Highcharts from 'highcharts/highstock';
+	import * as Select from './ui/select';
 
 	let chartContainer;
+	let ohlc;
+	let volume;
+	let closedPoints;
+	let dataLength;
+	let flags;
+	let chart;
+
+	let rangeIndex = 0;
 
 	const orange = '#E38A34';
 	const gray = '#5F5F5F';
+
+	const rangeOptions = ['1 month', '3 months', '6 months', '1 year', 'YTD', 'All'];
 
 	onMount(async () => {
 		// Load the dataset
@@ -13,11 +24,12 @@
 			(response) => response.json()
 		);
 
+		ohlc = [];
+		volume = [];
+		closedPoints = [];
+		dataLength = data.length;
+
 		// Split the data set into OHLC and volume
-		const ohlc = [];
-		const volume = [];
-		const closedPoints = [];
-		const dataLength = data.length;
 
 		for (let i = 0; i < dataLength; i++) {
 			ohlc.push([
@@ -37,7 +49,7 @@
 		}
 
 		// Define the flags data
-		const flags = [
+		flags = [
 			{
 				x: Date.UTC(2023, 8, 28),
 				title: '1'
@@ -57,7 +69,21 @@
 		];
 
 		// Initialize the Highcharts stock chart with black text and transparent background
-		const chart = Highcharts.stockChart(chartContainer, {
+		chart = Highcharts.stockChart(chartContainer, getChartProps(1));
+
+		return () => {
+			chart.destroy(); // Cleanup on component destroy
+		};
+	});
+
+	$: {
+		if (chart) {
+			chart = Highcharts.stockChart(chartContainer, getChartProps(rangeIndex));
+		}
+	}
+
+	const getChartProps = (selectedRangeIndex): Highcharts.Options => {
+		return {
 			chart: {
 				backgroundColor: 'transparent',
 				style: {
@@ -92,6 +118,7 @@
 				},
 				lineWidth: 0,
 				tickWidth: 0,
+
 				// breaks: 0,
 				gridLineColor: 'rgba(209, 213, 219, 0.8)', // Light gray dashed
 				gridLineDashStyle: 'Dash'
@@ -102,7 +129,7 @@
 						align: 'left',
 						style: { color: '#000000' } // Black labels
 					},
-					height: '80%',
+					height: '60%',
 					resize: {
 						enabled: true
 					},
@@ -114,8 +141,8 @@
 						align: 'left',
 						style: { color: '#000000' } // Black labels for volume axis
 					},
-					top: '80%',
-					height: '20%',
+					top: '60%',
+					height: '40%',
 					offset: 0,
 					gridLineColor: 'rgba(209, 213, 219, 0.8)', // Light gray dashed
 					gridLineDashStyle: 'Dash'
@@ -222,48 +249,65 @@
 				enabled: true,
 
 				dropdown: 'always',
+				selected: selectedRangeIndex,
+				buttonPosition: {
+					align: 'right'
+				},
+				inputBoxHeight: 0,
+				buttonTheme: {
+					fill: 'transparent',
+					stroke: 'transparent',
+					style: {
+						color: 'transparent'
+					}
+				},
+				x: 1000,
+
 				inputEnabled: false
 			},
 			navigator: {
 				enabled: false // Enable the navigator (scrollbar)
-				// outlineColor: 'gray', // Light orange border for navigator
-				// outlineWidth: 1,
-				// maskFill: 'rgba(247, 210, 196, 0.2)', // Light orange background with 30% opacity
-				// handles: {
-				// 	backgroundColor: 'gray', // Light orange handles
-				// 	borderColor: 'gray' // Light orange handles border
-				// },
-				// labels: {
-				// 	style: {
-				// 		color: '#000000' // Black text for navigator
-				// 	}
-				// }
 			}
-			// scrollbar: {
-			// 	enabled: true, // Enable the scrollbar
-			// 	barBackgroundColor: 'gray', // Light orange scrollbar
-			// 	barBorderRadius: 5,
-			// 	barBorderWidth: 1,
-			// 	buttonArrowColor: '#f7d2c4', // Light orange scrollbar buttons
-			// 	buttonBackgroundColor: '#f7d2c4', // Light orange scrollbar buttons background
-			// 	buttonBorderWidth: 1,
-			// 	buttonBorderRadius: 5,
-			// 	trackBackgroundColor: 'rgba(247, 210, 196, 0)', // Transparent scrollbar track
-			// 	trackBorderWidth: 1,
-			// 	trackBorderRadius: 5,
-			// 	labels: {
-			// 		style: {
-			// 			color: '#000000' // Black text for scrollbar
-			// 		}
-			// 	}
-			// }
-		});
-
-		return () => {
-			chart.destroy(); // Cleanup on component destroy
 		};
-	});
+	};
 </script>
 
-<!-- Tailwind Styled Chart Container for Responsiveness -->
-<div bind:this={chartContainer} class="w-full rounded-lg p-0 flex-1"></div>
+<div class="flex-1 flex flex-col">
+	<div class="flex justify-between">
+		<div class="flex flex-col">
+			<h3 class="text-xs">Current Value</h3>
+			<h1 class="text-5xl">$ 30,142.56</h1>
+		</div>
+		<div class="flex flex-row items-center gap-4">
+			<h3 class="text-md">Range</h3>
+
+			<Select.Root
+				portal={null}
+				selected={{
+					label: rangeOptions[rangeIndex],
+					value: rangeIndex
+				}}
+				onSelectedChange={(v) => {
+					rangeIndex = v.value;
+					console.log(rangeIndex);
+				}}
+			>
+				<Select.Trigger class="w-[180px]">
+					<Select.Value placeholder="Select a fruit" />
+				</Select.Trigger>
+				<Select.Content>
+					<Select.Group>
+						<Select.Label>Range</Select.Label>
+						{#each rangeOptions as rangeOption, index}
+							<Select.Item value={index} label={rangeOption}>{rangeOption}</Select.Item>
+						{/each}
+					</Select.Group>
+				</Select.Content>
+				<Select.Input name="favoriteFruit" />
+			</Select.Root>
+		</div>
+	</div>
+
+	<!-- Tailwind Styled Chart Container for Responsiveness -->
+	<div bind:this={chartContainer} class="w-full rounded-lg p-0"></div>
+</div>
