@@ -26,10 +26,10 @@
 	}
 </script>
 
-<div class="relative flex-1 overflow-y-scroll shadow-md sm:rounded-lg">
+<div class="relative  overflow-y-scroll shadow-md sm:rounded-lg">
 	<table class="w-full text-sm text-left text-tertiary dark:text-gray-400">
-		<thead class="text-xs text-tertiary uppercase bg-gray-100 dark:bg-gray-700 sticky top-0">
-			<tr>
+		<thead class="text-xs text-tertiary uppercase bg-gray-100 dark:bg-gray-700 h-12 sticky top-0">
+			<tr class="">
 				<th class="p-4">
 					<div class="flex items-center">
 						<!-- <input id="checkbox-all" type="checkbox" class="w-4 h-4"> -->
@@ -46,7 +46,7 @@
 		</thead>
 		<tbody>
 			{#each tweets as tweet}
-				<tr class="border-b border-secondary-200 hover:bg-gray-200">
+				<tr class="border-b border-secondary-200 h-16 hover:bg-gray-200">
 					<td class="p-4">
 						<div class="flex items-center">
 							<!-- <input id="checkbox-{tweet.id}" type="checkbox" class="w-4 h-4"> -->
@@ -60,7 +60,7 @@
 					<td class="px-6 py-2">{tweet.sentiment}</td>
 					<td class="px-6 py-2">
 						<div
-							class="flex justify-center rounded p-2"
+							class="flex justify-center rounded-lg p-2 px-4"
 							style={`background-color: ${getBackgroundColor(tweet.score)}; color: ${getTextColor(tweet.score)}`}
 						>
 							{tweet.score}

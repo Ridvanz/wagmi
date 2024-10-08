@@ -18,8 +18,9 @@
 
 <div class="flex-1">
 	<div class="flex flex-col rounded-lg border">
-		<div class="flex font-medium flex-col py-5 gap-3 p-4 px-6">
+		<div class="flex font-medium flex-col py-5 gap-3 p-4 px-5">
 			<img
+				alt="user"
 				class="w-8 h-8 mr-2"
 				src="https://static-00.iconduck.com/assets.00/ethereum-cryptocurrency-icon-512x512-u1g6py59.png"
 			/>

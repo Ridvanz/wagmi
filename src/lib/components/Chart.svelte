@@ -272,11 +272,11 @@
 	};
 </script>
 
-<div class="flex-1 flex flex-col">
+<div class="flex-[8]  flex flex-col">
 	<div class="flex justify-between">
 		<div class="flex flex-col">
 			<h3 class="text-xs">Current Value</h3>
-			<h1 class="text-5xl">$ 30,142.56</h1>
+			<h1 class="text-4xl">$ 30,142.56</h1>
 		</div>
 		<div class="flex flex-row items-center gap-4">
 			<h3 class="text-md">Range</h3>
@@ -309,5 +309,5 @@
 	</div>
 
 	<!-- Tailwind Styled Chart Container for Responsiveness -->
-	<div bind:this={chartContainer} class="w-full rounded-lg p-0"></div>
+	<div bind:this={chartContainer} class="w-full rounded-lg h-full p-0"></div>
 </div>

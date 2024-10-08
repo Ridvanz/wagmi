@@ -26,19 +26,19 @@
 
 		<!-- Token Searcher (Left side) -->
 		<div class="flex flex-col lg:flex-row min-h-40 gap-6 p-4 w-screen">
-			<div class="flex flex-1 flex-col gap-4">
+			<div class="flex flex-[2] flex-col gap-4">
 				<!-- <div class="flex flex-col"> -->
 				<TokenSelector />
 				<TokenStats />
 			</div>
 
-			<div class="flex flex-[3] flex-col h-full">
+			<div class="flex flex-[5] flex-col h-full">
 				<Chart />
 				<TweetsTable tweets={tweetsData} />
 			</div>
 
 			<!-- Searcher (Right side) -->
-			<div class="flex flex-1 gap-4 flex-col">
+			<div class="flex flex-[2] gap-4 flex-col">
 				<UserSelector />
 				<UserStats />
 			</div>

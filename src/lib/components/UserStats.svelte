@@ -1,4 +1,5 @@
 <script>
+	import { image1 } from '$lib/images/mock-images';
 	import StatBox from './StatBox.svelte';
 	import StatCard from './StatCard.svelte';
 
@@ -33,12 +34,15 @@
 
 <div class="flex-1">
 	<div class="flex flex-col min-h-fit rounded-lg border">
-		<div class="flex font-medium items-center flex-row py-5 gap-3 p-4 px-6">
+		<div class="flex font-medium items-center flex-row py-5 gap-3 p-4 px-5">
 			<div class="flex flex-col gap-4">
+				<div class="w-8 h-8 rounded-full mr-2 overflow-hidden ">
 				<img
-					class="w-8 h-8 mr-2"
-					src="https://static-00.iconduck.com/assets.00/ethereum-cryptocurrency-icon-512x512-u1g6py59.png"
+					alt="user"
+					class="object-cover"
+					src={image1}
 				/>
+			</div>
 				{user.name}
 			</div>
 			<div class="ml-auto flex flex-col gap-4">
