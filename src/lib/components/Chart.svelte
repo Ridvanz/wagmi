@@ -266,4 +266,4 @@
 </script>
 
 <!-- Tailwind Styled Chart Container for Responsiveness -->
-<div bind:this={chartContainer} class="w-full h-full rounded-lg p-0"></div>
+<div bind:this={chartContainer} class="w-full rounded-lg p-0 flex-1"></div>

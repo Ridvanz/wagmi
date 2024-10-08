@@ -1,6 +1,6 @@
 <script>
 	export let tweets = [];
-	
+
 	function getBackgroundColor(score) {
 		// Dark orange when score is 1 -> HSL(30, 100%, 50%)
 		// White when score is 0 -> HSL(0, 0%, 100%)
@@ -26,11 +26,9 @@
 	}
 </script>
 
-<div class="relative h-full w-full max-h-full overflow-y-auto shadow-md sm:rounded-lg">
+<div class="relative flex-1 overflow-y-scroll shadow-md sm:rounded-lg">
 	<table class="w-full text-sm text-left text-tertiary dark:text-gray-400">
-		<thead
-			class="text-xs text-tertiary uppercase bg-gray-100 dark:bg-gray-700 sticky top-0"
-		>
+		<thead class="text-xs text-tertiary uppercase bg-gray-100 dark:bg-gray-700 sticky top-0">
 			<tr>
 				<th class="p-4">
 					<div class="flex items-center">
@@ -61,7 +59,7 @@
 					<td class="px-6 py-2">{tweet.retweets}</td>
 					<td class="px-6 py-2">{tweet.sentiment}</td>
 					<td class="px-6 py-2">
-						<div 
+						<div
 							class="flex justify-center rounded p-2"
 							style={`background-color: ${getBackgroundColor(tweet.score)}; color: ${getTextColor(tweet.score)}`}
 						>
