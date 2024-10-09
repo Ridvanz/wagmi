@@ -28,7 +28,7 @@
   
   <SearchSelect
     items={allUsers}
-    placeholder="Search for a User..."
+    type="user"
     bind:selectedItems={selectedUsers}
     itemLabel={userLabel}
     itemKey={userKey}

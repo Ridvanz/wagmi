@@ -1,5 +1,6 @@
 <script>
-	import StatBox from './StatBox.svelte';
+	import Ethereum from './icons/Ethereum.svelte';
+import StatBox from './StatBox.svelte';
 	import TokenStatCard from './StatCard.svelte';
 
 	let token = {
@@ -16,18 +17,18 @@
 	};
 </script>
 
-<div class="flex-1">
-	<div class="flex flex-col rounded-lg border">
-		<div class="flex font-medium flex-col py-5 gap-3 p-4 px-5">
-			<img
+	<div class="flex  2xl:h-full max-h-ful flex-col rounded-xl border">
+		<div class="flex  font-normal flex-col py-5 gap-3 p-4 px-5">
+			<!-- <img
 				alt="user"
 				class="w-8 h-8 mr-2"
 				src="https://static-00.iconduck.com/assets.00/ethereum-cryptocurrency-icon-512x512-u1g6py59.png"
-			/>
+			/> -->
+			<Ethereum class="scale-[1.3]" />
 			{token.name} ({token.symbol})
 		</div>
 		<hr />
-		<div class="flex text-sm flex-row">
+		<div class="flex flex-1 text-sm flex-row">
 			<div class="flex flex-1 flex-col">
 				<StatBox label="Price" value={token.price} />
 				<StatBox label="Circulating Vol" value={token.circulating_supply} variant="2" />
@@ -42,5 +43,4 @@
 			</div>
 		</div>
 	</div>
-</div>
 

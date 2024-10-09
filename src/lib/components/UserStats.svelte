@@ -32,9 +32,8 @@
     <StatCard label="Media Posts" value={user.media_posts} />
 </div> -->
 
-<div class="flex-1">
-	<div class="flex flex-col min-h-fit rounded-lg border">
-		<div class="flex font-medium items-center flex-row py-5 gap-3 p-4 px-5">
+	<div class="flex  2xl:h-full max-h-full flex-col min-h-fit rounded-xl border">
+		<div class="flex font-normal items-center flex-row py-5 gap-3 p-4 px-5">
 			<div class="flex flex-col gap-4">
 				<div class="w-8 h-8 rounded-full mr-2 overflow-hidden ">
 				<img
@@ -46,16 +45,16 @@
 				{user.name}
 			</div>
 			<div class="ml-auto flex flex-col gap-4">
-				<p>{user.followers}</p>
-				<p>Followers</p>
+				<p class="text-primary">{user.followers}</p>
+				<p class="text-sm">Followers</p>
 			</div>
 			<div class="flex flex-col gap-4">
-				<p>{user.following}</p>
-				<p>Following</p>
+				<p class="text-primary">{user.following}</p>
+				<p class="text-sm">Following</p>
 			</div>
 		</div>
 		<hr />
-		<div class="flex text-sm flex-row">
+		<div class="flex flex-1 text-sm flex-row">
 			<div class="flex flex-1 flex-col">
 				<StatBox label="Price" value={user.tweets} />
 				<StatBox label="Circulating Vol" value={user.retweets} variant="2" />
@@ -70,4 +69,3 @@
 			</div>
 		</div>
 	</div>
-</div>

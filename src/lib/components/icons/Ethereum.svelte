@@ -1,4 +1,4 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg {...$$props} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M10.4593 3.05006L6.7193 7.71006C5.8693 8.77006 6.1693 10.1301 7.3793 10.7301L11.1093 12.6001C11.5993 12.8401 12.3993 12.8401 12.8893 12.6001L16.6193 10.7301C17.8293 10.1201 18.1293 8.76006 17.2793 7.71006L13.5493 3.05006C12.7093 1.98006 11.3093 1.98006 10.4593 3.05006Z" stroke="#151615" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M12.0093 2.30005V7.56005" stroke="#151615" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M7.80933 10.7101L12.0093 7.56006L16.2093 10.7101" stroke="#151615" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

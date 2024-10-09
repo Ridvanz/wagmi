@@ -39,20 +39,17 @@
 </script>
 
 <nav class="h-full flex items-center justify-center">
-	<div class="w-full flex flex-wrap items-center justify-between mx-8 px-4 py-2">
+	<div class="w-full flex flex-wrap items-center justify-between mx-4  py-3">
+		<div class="flex flex-row gap-24">
 		<a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
 			<div class="flex items-center rounded-md pl-2 pr-2">
 				<img src={pik} class="h-8" alt="Flowbite Logo" />
 			</div>
+			
 		</a>
-		<div class="flex items-center md:order-1 space-x-1 md:space-x-2 rtl:space-x-reverse">
-			{#each buttons as button}
-				<a href={button.href} class={button.classes}>{button.label}</a>
-			{/each}
-		</div>
 		<div id="mega-menu-icons" class="items-center justify-between w-auto">
 			<ul
-				class="h-full w-full text-sm font-medium text-center text-tertiary-100 flex dark:divide-tertiary-700 dark:text-tertiary-400 rounded-xl bg-[#1C1D1A]"
+				class="h-10 w-full text-sm font-medium text-center text-tertiary-100 flex dark:divide-tertiary-700 dark:text-tertiary-400 rounded-xl bg-[#1C1D1A]"
 			>
 				{#each menuItems as item, index}
 					<li class="w-full flex flex-row text-nowrap">
@@ -60,11 +57,18 @@
 							href={item.href}
 							class="{selectedMenuItem === index
 								? 'text-primary bg-white rounded-xl'
-								: ' text-white'} text-xs px-6 py-2 h-full">{item.label}</a
+								: ' text-white'} text-xs px-6 py-3 h-full">{item.label}</a
 						>
 					</li>
 				{/each}
 			</ul>
+		</div>
+		</div>
+
+		<div class="flex items-center md:order-1 space-x-1 md:space-x-2 rtl:space-x-reverse">
+			{#each buttons as button}
+				<a href={button.href} class={button.classes}>{button.label}</a>
+			{/each}
 		</div>
 	</div>
 </nav>

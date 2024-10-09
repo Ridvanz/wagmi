@@ -62,7 +62,7 @@
 
 <SearchSelect
 	items={allTokens}
-	placeholder="Search for a token"
+	type="token"
 	bind:selectedItems={selectedTokens}
 	itemLabel={(token) => token.label}
 	itemIcon={getTokenIcon}

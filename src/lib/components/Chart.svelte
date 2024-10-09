@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import Highcharts from 'highcharts/highstock';
 	import * as Select from './ui/select';
+	import LineChartIcon from './icons/LineChartIcon.svelte';
+	import ChartIcon from './icons/ChartIcon.svelte';
 
 	let chartContainer;
 	let ohlc;
@@ -270,16 +272,36 @@
 			}
 		};
 	};
+
+	let selectedView : 'line' | 'bar' = 'line';
+	const setView = (view: 'line' | 'bar') => {
+		selectedView = view;
+	};
 </script>
 
-<div class="flex-[8]  flex flex-col">
+<div class="border rounded-lg p-4  max-h-full flex flex-col">
 	<div class="flex justify-between">
-		<div class="flex flex-col">
+		<div class="flex gap-1 flex-col">
 			<h3 class="text-xs">Current Value</h3>
-			<h1 class="text-4xl">$ 30,142.56</h1>
+			<h1 class="text-[2rem]">$ 30,142.56</h1>
 		</div>
-		<div class="flex flex-row items-center gap-4">
-			<h3 class="text-md">Range</h3>
+		<div class="flex flex-row gap-8">
+		<div class="flex flex-row items-center gap-2">
+			<button 
+			on:click={() => setView('line')}
+			class="flex justify-center items-center rounded-full h-10 w-10 p-2.5 {
+			selectedView === 'line' ? 'bg-primary text-white' : 'bg-transparent'
+			} transition-all">
+				<LineChartIcon/>
+			</button>
+			<button on:click={() => setView('bar')} class="flex justify-center items-center rounded-full h-10 w-10 p-2.5 {
+				selectedView === 'bar' ? 'bg-primary text-white' : 'bg-transparent'
+				} transition-all" >
+				<ChartIcon/>
+			</button>
+		</div>
+		<div class="flex flex-row items-center gap-3">
+			<h3 class="text-xs">Range</h3>
 
 			<Select.Root
 				portal={null}
@@ -292,7 +314,7 @@
 					console.log(rangeIndex);
 				}}
 			>
-				<Select.Trigger class="w-[180px]">
+				<Select.Trigger class="w-[150px]">
 					<Select.Value placeholder="Select a fruit" />
 				</Select.Trigger>
 				<Select.Content>
@@ -307,7 +329,8 @@
 			</Select.Root>
 		</div>
 	</div>
+	</div>
 
 	<!-- Tailwind Styled Chart Container for Responsiveness -->
-	<div bind:this={chartContainer} class="w-full rounded-lg h-full p-0"></div>
+	<div bind:this={chartContainer} class="w-full rounded-xl max-h-full h-full p-0"></div>
 </div>
