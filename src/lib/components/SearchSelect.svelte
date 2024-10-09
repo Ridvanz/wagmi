@@ -37,7 +37,7 @@
 </script>
 
 <!-- Search and select component container -->
-<div class="flex 2xl:justify-between flex-col max-h-[25rem] 2xl:h-full 2xl:max-h-full">
+<div class="flex  2xl:justify-between flex-col min-h-fit lg:max-h-[25rem] 2xl:h-full 2xl:max-h-full">
 	<div
 		class="flex flex-col h-fit flex-1 border w-full border-secondary-300 rounded-xl p-3 {selectedItems.length ==
 		1
@@ -46,7 +46,7 @@
 				? 'max-h-[56%]'
 				: selectedItems.length >= 3
 					? 'max-h-[44%]'
-					: 'max-h-[78%]'}"
+					: ' max-h-[78%]'}"
 	>
 		<!-- Search bar -->
 		<div class="relative w-full">

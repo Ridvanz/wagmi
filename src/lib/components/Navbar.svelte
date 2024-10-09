@@ -40,14 +40,14 @@
 
 <nav class="h-full flex items-center justify-center">
 	<div class="w-full flex flex-wrap items-center justify-between mx-4  py-3">
-		<div class="flex flex-row gap-24">
+		<div class="flex flex-row gap-4 lg:gap-24">
 		<a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
 			<div class="flex items-center rounded-md pl-2 pr-2">
 				<img src={pik} class="h-8" alt="Flowbite Logo" />
 			</div>
 			
 		</a>
-		<div id="mega-menu-icons" class="items-center justify-between w-auto">
+		<div id="mega-menu-icons" class="hidden lg:flex items-center justify-between w-auto">
 			<ul
 				class="h-10 w-full text-sm font-medium text-center text-tertiary-100 flex dark:divide-tertiary-700 dark:text-tertiary-400 rounded-xl bg-[#1C1D1A]"
 			>
