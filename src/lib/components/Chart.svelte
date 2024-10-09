@@ -102,6 +102,17 @@
 				zoomType: 'x'
 				// spacing: 0 // Enable zooming on the x-axis
 			},
+			plotOptions: {
+				bar: {
+					dataLabels: {
+						enabled: true
+					}
+				},
+				series: {
+					groupPadding: 0,
+					pointPadding: 0.05
+				}
+			},
 			xAxis: {
 				labels: {
 					style: {
@@ -131,7 +142,7 @@
 						align: 'left',
 						style: { color: '#000000' } // Black labels
 					},
-					height: '60%',
+					height: '75%',
 					resize: {
 						enabled: true
 					},
@@ -140,12 +151,13 @@
 				},
 				{
 					labels: {
-						align: 'left',
+						align: 'right',
 						style: { color: '#000000' } // Black labels for volume axis
 					},
 					top: '60%',
 					height: '40%',
-					offset: 0,
+					opposite: false,
+					// offset: 0,
 					gridLineColor: 'rgba(209, 213, 219, 0.8)', // Light gray dashed
 					gridLineDashStyle: 'Dash'
 				}
@@ -273,62 +285,68 @@
 		};
 	};
 
-	let selectedView : 'line' | 'bar' = 'line';
+	let selectedView: 'line' | 'bar' = 'line';
 	const setView = (view: 'line' | 'bar') => {
 		selectedView = view;
 	};
 </script>
 
-<div class="border rounded-lg p-4  max-h-full flex flex-col">
+<div class="border rounded-lg p-4 2xl:h-full max-h-full flex flex-col">
 	<div class="flex justify-between">
 		<div class="flex gap-1 flex-col">
 			<h3 class="text-xs">Current Value</h3>
 			<h1 class="text-[2rem]">$ 30,142.56</h1>
 		</div>
 		<div class="flex flex-row gap-8">
-		<div class="flex flex-row items-center gap-2">
-			<button 
-			on:click={() => setView('line')}
-			class="flex justify-center items-center rounded-full h-10 w-10 p-2.5 {
-			selectedView === 'line' ? 'bg-primary text-white' : 'bg-transparent'
-			} transition-all">
-				<LineChartIcon/>
-			</button>
-			<button on:click={() => setView('bar')} class="flex justify-center items-center rounded-full h-10 w-10 p-2.5 {
-				selectedView === 'bar' ? 'bg-primary text-white' : 'bg-transparent'
-				} transition-all" >
-				<ChartIcon/>
-			</button>
-		</div>
-		<div class="flex flex-row items-center gap-3">
-			<h3 class="text-xs">Range</h3>
+			<div class="flex flex-row items-center gap-2">
+				<button
+					on:click={() => setView('line')}
+					class="flex justify-center items-center rounded-full h-10 w-10 p-2.5 {selectedView ===
+					'line'
+						? 'bg-primary text-white'
+						: 'bg-transparent'} transition-all"
+				>
+					<LineChartIcon />
+				</button>
+				<button
+					on:click={() => setView('bar')}
+					class="flex justify-center items-center rounded-full h-10 w-10 p-2.5 {selectedView ===
+					'bar'
+						? 'bg-primary text-white'
+						: 'bg-transparent'} transition-all"
+				>
+					<ChartIcon />
+				</button>
+			</div>
+			<div class="flex flex-row items-center gap-3">
+				<h3 class="text-xs">Range</h3>
 
-			<Select.Root
-				portal={null}
-				selected={{
-					label: rangeOptions[rangeIndex],
-					value: rangeIndex
-				}}
-				onSelectedChange={(v) => {
-					rangeIndex = v.value;
-					console.log(rangeIndex);
-				}}
-			>
-				<Select.Trigger class="w-[150px]">
-					<Select.Value placeholder="Select a fruit" />
-				</Select.Trigger>
-				<Select.Content>
-					<Select.Group>
-						<Select.Label>Range</Select.Label>
-						{#each rangeOptions as rangeOption, index}
-							<Select.Item value={index} label={rangeOption}>{rangeOption}</Select.Item>
-						{/each}
-					</Select.Group>
-				</Select.Content>
-				<Select.Input name="favoriteFruit" />
-			</Select.Root>
+				<Select.Root
+					portal={null}
+					selected={{
+						label: rangeOptions[rangeIndex],
+						value: rangeIndex
+					}}
+					onSelectedChange={(v) => {
+						rangeIndex = v.value;
+						console.log(rangeIndex);
+					}}
+				>
+					<Select.Trigger class="w-[150px]">
+						<Select.Value placeholder="Select a fruit" />
+					</Select.Trigger>
+					<Select.Content>
+						<Select.Group>
+							<Select.Label>Range</Select.Label>
+							{#each rangeOptions as rangeOption, index}
+								<Select.Item value={index} label={rangeOption}>{rangeOption}</Select.Item>
+							{/each}
+						</Select.Group>
+					</Select.Content>
+					<Select.Input name="favoriteFruit" />
+				</Select.Root>
+			</div>
 		</div>
-	</div>
 	</div>
 
 	<!-- Tailwind Styled Chart Container for Responsiveness -->
