@@ -39,17 +39,10 @@
 <!-- Search and select component container -->
 <div class="flex 2xl:justify-between flex-col min-h-fit lg:max-h-[25rem] 2xl:h-full 2xl:max-h-full">
 	<div
-		class="flex flex-col h-fit flex-1 border w-full border-secondary-300 rounded-xl p-3 {selectedItems.length ==
-		1
-			? 'max-h-[69%] 2xl:max-h-[80.5%]'
-			: selectedItems.length == 2
-				? 'max-h-[56%] 2xl:max-h-[72.5%]'
-				: selectedItems.length >= 3
-					? 'max-h-[44%] 2xl:max-h-[65%]'
-					: ' max-h-[78%] 2xl:max-h-[86%]'}"
+		class="relative flex flex-col border w-full border-secondary-300 rounded-xl p-3 pt-0 flex-grow overflow-y-auto"
 	>
 		<!-- Search bar -->
-		<div class="relative w-full">
+		<div class="sticky top-0 w-full bg-background pt-3 pb-2">
 			<Input
 				type="text"
 				placeholder={`Search for a ${type}`}
@@ -57,7 +50,7 @@
 				aria-label={`Search for a ${type}`}
 				class="pl-12"
 			/>
-			<div class="absolute left-[0.82rem] top-2 opacity-65">
+			<div class="absolute left-[0.82rem] top-5 opacity-65">
 				{#if type == 'token'}
 					<Bitcoin />
 				{:else}
@@ -67,54 +60,46 @@
 		</div>
 
 		<!-- Available items list -->
-		<div class="flex-1 mt-2 pr-1 overflow-y-auto">
-			{#if filteredItems.length === 0}
-				<p class="text-secondary1">No items found.</p>
-			{/if}
-			<ul>
-				{#each filteredItems as item}
-					<li>
-						<button
-							class="w-full text-sm p-3 py-4 mb-1 hover:bg-primary-300 transition border-b border-secondary-300 flex items-center justify-between"
-							on:click={() => selectItem(item)}
-						>
-							<!-- Left side: Icon and Token Name -->
-							<div class="flex items-center gap-3 flex-grow">
-								{#if item.icon}
-									<svelte:component this={item.icon} class="w-6 h-6 mr-2" />
-								{/if}
-								{#if item.image}
-									<div class="w-6 h-6 rounded-full mr-2 overflow-hidden">
-										<img alt="user" class="object-cover" src={item.image} />
-									</div>
-								{/if}
-								<span>{itemLabel(item).split(' (')[0]}</span>
-							</div>
+		<!-- <div class=" mt-2 "> -->
+		{#if filteredItems.length === 0}
+			<p class="text-secondary">No items found.</p>
+		{/if}
+		<ul>
+			{#each filteredItems as item}
+				<li>
+					<button
+						class="w-full text-sm p-3 py-4 mb-1 hover:bg-primary-300 transition border-b border-secondary-300 flex items-center justify-between"
+						on:click={() => selectItem(item)}
+					>
+						<!-- Left side: Icon and Token Name -->
+						<div class="flex items-center gap-3 flex-grow">
+							{#if item.icon}
+								<svelte:component this={item.icon} class="w-6 h-6 mr-2" />
+							{/if}
+							{#if item.image}
+								<div class="w-6 h-6 rounded-full mr-2 overflow-hidden">
+									<img alt="user" class="object-cover" src={item.image} />
+								</div>
+							{/if}
+							<span>{itemLabel(item).split(' (')[0]}</span>
+						</div>
 
-							<!-- Right side: Token Ticker -->
-							<span class="ml-2 text-xs">{itemLabel(item).match(/\(([^)]+)\)/)[1]}</span>
-						</button>
-					</li>
-				{/each}
-			</ul>
-		</div>
+						<!-- Right side: Token Ticker -->
+						<span class="ml-2 text-xs">{itemLabel(item).match(/\(([^)]+)\)/)[1]}</span>
+					</button>
+				</li>
+			{/each}
+		</ul>
+		<!-- </div> -->
 	</div>
 
 	<!-- Spacer to push the Selected Items section to the bottom -->
-	<div
-		class={selectedItems.length == 1
-			? 'max-h-20'
-			: selectedItems.length == 2
-				? 'max-h-32'
-				: selectedItems.length >= 3
-					? 'max-h-44'
-					: 'max-h-max-h-56'}
-	>
+	<div class="">
 		<h3 class="text-black text-sm my-3">Selected Items:</h3>
 
 		<!-- Selected items section -->
 		<div
-			class="border min-h-fit rounded-xl border-secondary-300 text-tertiary w-full p-3 py-2 overflow-y-auto"
+			class="border min-h-fit max-h-44 rounded-xl border-secondary-300 text-tertiary w-full p-3 py-2 overflow-y-auto"
 		>
 			{#if selectedItems.length === 0}
 				<p class="text-tertiary">No items selected.</p>
