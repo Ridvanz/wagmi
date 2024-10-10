@@ -39,7 +39,7 @@
 <!-- Search and select component container -->
 <div class="flex 2xl:justify-between flex-col min-h-fit lg:max-h-[25rem] 2xl:h-full 2xl:max-h-full">
 	<div
-		class="relative flex flex-col border w-full border-secondary-300 rounded-xl p-3 pt-0 flex-grow overflow-y-auto"
+		class="relative flex flex-col border w-full border-secondary-300 rounded-xl p-3 pt-0 flex-grow overflow-y-auto h-64 2xl:h-1"
 	>
 		<!-- Search bar -->
 		<div class="sticky top-0 w-full bg-background pt-3 pb-2">
