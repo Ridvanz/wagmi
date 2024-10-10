@@ -1,61 +1,65 @@
+import { fontFamily } from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: 'class', // Enable dark mode based on a class
-  content: ['./src/**/*.{html,js,svelte,ts}', "./node_modules/flowbite/**/*.js"],
-  theme: {
-    colors: {
-      'primary': {
-        DEFAULT: '#EE7003',
-        50: '#FED1AB',
-        100: '#FEC697',
-        200: '#FDB16E',
-        300: '#FD9B46',
-        400: '#FC851E',
-        500: '#EE7003',
-        600: '#B75602',
-        700: '#7F3C02',
-        800: '#482201',
-        900: '#100800',
-        950: '#000000',
-      },
-      'secondary': {
-        DEFAULT: '#FFFFFF',
-        50: '#F9F9F9',
-        100: '#F2F2F2',
-        200: '#E5E5E5',
-        300: '#D9D9D9',
-        400: '#BFBFBF',
-        500: '#A6A6A6',
-        600: '#8C8C8C',
-        700: '#737373',
-        800: '#595959',
-        900: '#404040',
-        950: '#333333',
-      },
-      'tertiary': {
-        DEFAULT: '#333333',
-        50: '#FFFFFF',
-        100: '#F8F8F8',
-        200: '#EAEAEA',
-        300: '#DCDCDC',
-        400: '#C0C0C0',
-        500: '#A3A3A3',
-        600: '#878787',
-        700: '#6B6B6B',
-        800: '#4F4F4F',
-        900: '#333333',
-        950: '#1A1A1A',
-      },
-      '': {
-        DEFAULT: '#DBDBDB',
-      },    
-      'donkergrijs': {
-        DEFAULT: '#DBDBDB',
-      },           
-    },
-    extend: {},
-  },
-  plugins: [
-    require('flowbite/plugin')
-  ],
-}
+const config = {
+	darkMode: ["class"],
+	content: ["./src/**/*.{html,js,svelte,ts}"],
+	safelist: ["dark"],
+	theme: {
+		container: {
+			center: true,
+			padding: "2rem",
+			screens: {
+				"2xl": "1400px",
+				"3xl": "1500px"
+			}
+		},
+		extend: {
+			colors: {
+				border: "hsl(var(--border) / <alpha-value>)",
+				input: "hsl(var(--input) / <alpha-value>)",
+				ring: "hsl(var(--ring) / <alpha-value>)",
+				background: "hsl(var(--background) / <alpha-value>)",
+				foreground: "hsl(var(--foreground) / <alpha-value>)",
+				primary: {
+					DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+					foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
+				},
+				secondary: {
+					DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
+					foreground: "hsl(var(--secondary-foreground) / <alpha-value>)"
+				},
+				destructive: {
+					DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
+					foreground: "hsl(var(--destructive-foreground) / <alpha-value>)"
+				},
+				muted: {
+					DEFAULT: "hsl(var(--muted) / <alpha-value>)",
+					foreground: "hsl(var(--muted-foreground) / <alpha-value>)"
+				},
+				accent: {
+					DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+					foreground: "hsl(var(--accent-foreground) / <alpha-value>)"
+				},
+				popover: {
+					DEFAULT: "hsl(var(--popover) / <alpha-value>)",
+					foreground: "hsl(var(--popover-foreground) / <alpha-value>)"
+				},
+				card: {
+					DEFAULT: "hsl(var(--card) / <alpha-value>)",
+					foreground: "hsl(var(--card-foreground) / <alpha-value>)"
+				}
+			},
+			borderRadius: {
+				lg: "var(--radius)",
+				md: "calc(var(--radius) - 2px)",
+				sm: "calc(var(--radius) - 4px)"
+			},
+			fontFamily: {
+				sans: [...fontFamily.sans]
+			}
+		}
+	},
+};
+
+export default config;

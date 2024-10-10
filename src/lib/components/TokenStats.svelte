@@ -1,29 +1,46 @@
 <script>
-    import TokenStatCard from './StatCard.svelte';
+	import Ethereum from './icons/Ethereum.svelte';
+import StatBox from './StatBox.svelte';
+	import TokenStatCard from './StatCard.svelte';
 
-    let token = {
-        name: "Ethereum",
-        symbol: "ETH",
-        price: "$3,200",
-        market_cap: "$380B",
-        circulating_supply: "117.8M",
-        volume_24h: "$14.2B",
-        change_24h: "-2.45%",
-        all_time_high: "$4,356",
-        rank: 2,
-        dominance: "18.5%"
-    };
+	let token = {
+		name: 'Ethereum',
+		symbol: 'ETH',
+		price: '$3,200',
+		market_cap: '$380 B',
+		circulating_supply: '117.8 M',
+		volume_24h: '$14.2 B',
+		change_24h: '-2.45%',
+		all_time_high: '$4,356',
+		rank: 2,
+		dominance: '18.5%'
+	};
 </script>
 
-<div class="flex flex-wrap gap-2 p-2  rounded-lg w-full  h-full">
-    <TokenStatCard label="Token Name" value={token.name} />
-    <TokenStatCard label="Symbol" value={token.symbol} />
-    <TokenStatCard label="Price" value={token.price}  />
-    <TokenStatCard label="Market Cap" value={token.market_cap}  />
-    <TokenStatCard label="Circulating Supply" value={token.circulating_supply} />
-    <TokenStatCard label="24h Volume" value={token.volume_24h}  />
-    <TokenStatCard label="24h Change" value={token.change_24h}  />
-    <TokenStatCard label="All Time High" value={token.all_time_high} />
-    <TokenStatCard label="Rank" value={token.rank} />
-    <TokenStatCard label="Dominance" value={token.dominance} />
-</div>
+	<div class="flex  2xl:h-full max-h-ful flex-col rounded-xl border">
+		<div class="flex  font-normal flex-col py-5 gap-3 p-4 px-5">
+			<!-- <img
+				alt="user"
+				class="w-8 h-8 mr-2"
+				src="https://static-00.iconduck.com/assets.00/ethereum-cryptocurrency-icon-512x512-u1g6py59.png"
+			/> -->
+			<Ethereum class="scale-[1.3]" />
+			{token.name} ({token.symbol})
+		</div>
+		<hr />
+		<div class="flex flex-1 text-sm flex-row">
+			<div class="flex flex-1 flex-col">
+				<StatBox label="Price" value={token.price} />
+				<StatBox label="Circulating Vol" value={token.circulating_supply} variant="2" />
+				<StatBox label="24h Change" value={token.change_24h} />
+				<StatBox label="24h Volume" value={token.volume_24h} variant="2" />
+			</div>
+			<div class="flex flex-1 border-l flex-col">
+				<StatBox label="Market Cap" value={token.market_cap} />
+				<StatBox label="All Time High" value={token.all_time_high} variant="2" />
+				<StatBox label="Rank" value={token.rank} />
+				<StatBox label="Dominance" value={token.dominance} variant="2" />
+			</div>
+		</div>
+	</div>
+

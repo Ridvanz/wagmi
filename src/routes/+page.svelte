@@ -17,70 +17,71 @@
 <!-- <div class="transform origin-center  "> -->
 
 <!-- <div class="grid grid-cols-12 grid-rows-12 place-content-stretch h-screen w-screen"> -->
-<div
-	class="grid grid-cols-12 grid-rows-12 gap-4  h-screen w-screen max-h-screen max-w-screen content-stretch bg-white"
->
+<div class="flex flex-col w-screen max-w-screen">
 	<!-- Navbar (Full width) -->
-	<header
-		class="col-start-1 col-end-13 row-start-1 row-end-1  h-full   bg-black "
-	>
-	
-		<Navbar />
-	</header>
+	<div class="2xl:h-screen flex flex-col 2xl:max-h-screen  overflow-hidden w-screen">
+		<header class="bg-black">
+			<Navbar />
+		</header>
 
-	<!-- Token Searcher (Left side) -->
-	<aside
-		class="col-start-1 col-end-3 row-start-2 row-end-8 rounded-xl ml-4  shadow-secondary-500/50"
-	>
-		<TokenSelector />
-	</aside>
+		<!-- Token Searcher (Left side) -->
+		<!-- <div class="flex flex-col lg:flex-row min-h-40 gap-4 p-4 w-screen">
+			<div class="flex flex-[2] flex-col gap-4">
+				<TokenSelector />
+				<TokenStats />
+			</div>
 
-	<!-- Crypto Stats (Left side, below Token Searcher) -->
-	<section
-		class="col-start-1 col-end-3 row-start-8 row-end-12  rounded-xl ml-4  overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
-	>
-		<TokenStats />
-	</section>
+			<div class="flex flex-[5] gap-4 flex-col h-full">
+				<Chart />
+				<TweetsTable tweets={tweetsData} />
+			</div>
 
-	<!-- Searcher (Right side) -->
-	<aside
-		class="col-start-11 col-end-13 row-start-2 row-end-8   rounded-xl mr-4  shadow-secondary-500/50"
-	>
-		<UserSelector />
-	</aside>
+			<div class="flex flex-[2] gap-4 flex-col">
+				<UserSelector />
+				<UserStats />
+			</div>
+		</div> -->
 
-	<!-- Twitter Post (Right side, below Searcher) -->
-	<section
-		class="col-start-11 col-end-13 row-start-8 row-end-12 rounded-xl mr-4 overflow-y-auto border-primary shadow-sm shadow-secondary-500/50"
-	>
-		<UserStats />
-	</section>
+		<div class="hidden 2xl:grid grid-cols-12 grid-rows-12 gap-4 max-h-[93%] w-screen p-4">
+			<aside class="col-start-1 col-end-4 row-start-1 row-end-8">
+				<TokenSelector />
+			</aside>
+			<section class="col-start-1 col-end-4 row-start-8 row-end-[16]">
+				<TokenStats />
+			</section>
+			<main class="col-span-6 row-span-7 rounded-xl">
+				<Chart />
+			</main>
+			<section class="col-start-4 col-end-10 row-start-8 row-end-[16]  ">
+				<TweetsTable tweets={tweetsData} />
+			</section>
+			<aside class="col-start-10 col-end-13 row-start-1 row-end-8">
+				<UserSelector />
+			</aside>
+			<section class="col-start-10 col-end-13 row-start-8 row-end-[16]">
+				<UserStats />
+			</section>
+		</div>
 
-	<!-- Main Chart (Center) -->
-	<main
-		class="col-span-8 row-span-6 rounded-xl    shadow-sm shadow-secondary-500/50"
-	>
-		<Chart />
-	</main>
+			<div class="flex flex-col-reverse lg:flex-row 2xl:hidden  gap-4  w-screen p-4">
+				
+				<div class="flex flex-1 flex-col gap-4 w-full">
+					<TokenSelector />
+					<TokenStats />
+					<UserSelector />
+					<UserStats />
+				</div> 
+				<div class="flex  flex-[3] flex-col gap-4 w-full">
+				<Chart />
+				<TweetsTable tweets={tweetsData} />
+			</div>
 
-	<!-- Data Table (Center, below Main Chart) -->
-	<section
-		class="col-span-8 row-span-4 rounded-xl   shadow-sm shadow-secondary-500/50"
-	>
-		<!-- <Table /> -->
-
-		<TweetsTable tweets={tweetsData} />
-
-		<!-- <Carousel /> -->
-	</section>
+		</div>
+	</div>
 
 	<!-- Footer (Full width) -->
-	<footer class="col-start-1 col-end-13 row-start-auto row-end-auto self-end lg from-tertiary-200 via-tertiary-100 to-tertiary-200 border-primary shadow-sm shadow-secondary-500/50">
-		<div class="">
-			<Footer />
-			<div></div>
-		</div>
-	</footer>
+
+	<!-- <Footer /> -->
 </div>
 
 <!-- </div> -->
