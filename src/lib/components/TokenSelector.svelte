@@ -1,37 +1,47 @@
 <script lang="ts">
   import SearchSelect from './SearchSelect.svelte';
 
-  let allTokens: string[] = [
-    'Bitcoin (BTC)', 'Ethereum (ETH)', 'Cardano (ADA)', 'Binance Coin (BNB)', 'Solana (SOL)', 
-    'Polkadot (DOT)', 'Ripple (XRP)', 'Dogecoin (DOGE)', 'Shiba Inu (SHIB)', 'Chainlink (LINK)'
-  ];
+  let selectedTokens: any[] = [];
 
-  let tokenIcons = {
-    'Bitcoin (BTC)': 'https://static-00.iconduck.com/assets.00/bitcoin-cryptocurrency-icon-256x256-cxuyjtwk.png',
-    'Ethereum (ETH)': 'https://static-00.iconduck.com/assets.00/ethereum-cryptocurrency-icon-512x512-u1g6py59.png',
-    'Cardano (ADA)': 'https://static-00.iconduck.com/assets.00/cardano-cryptocurrency-icon-512x512-x99hiphg.png',
-    'Binance Coin (BNB)': 'https://static-00.iconduck.com/assets.00/binance-coin-cryptocurrency-icon-512x512-aacfkhah.png',
-    'Solana (SOL)': 'https://static-00.iconduck.com/assets.00/solana-sol-icon-512x483-w6lob3zd.png',
-    'Polkadot (DOT)': 'https://static-00.iconduck.com/assets.00/polkadot-cryptocurrency-icon-512x508-0s30anez.png',
-    'Ripple (XRP)': 'https://static-00.iconduck.com/assets.00/ripple-icon-474x512-ijy3q110.png',
-    'Dogecoin (DOGE)': 'https://static-00.iconduck.com/assets.00/dogecoin-cryptocurrency-icon-512x512-z7jjg89f.png',
-    'Shiba Inu (SHIB)': 'https://cryptologos.cc/logos/shiba-inu-shib-logo.svg?v=035',
-    'Chainlink (LINK)': 'https://cryptologos.cc/logos/chainlink-link-logo.svg?v=035',
-  };
+  // Fetch tokens from the API
+  async function fetchTokens(query: string) {
+    console.log("Fetching tokens for query:", query);
+    
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/crypto_token/?name=${encodeURIComponent(query)}`);
+      if (!response.ok) {
+        throw new Error("Error fetching tokens");
+      }
+      
+      // Convert the response to JSON
+      const data = await response.json();
+      console.log("Tokens received:", data); // Debugging
+      return data;
+      
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return []; // Return empty array in case of error
+    }
+  }
 
-  let selectedTokens: string[] = [];
+  function tokenKey(item) {
+    return item.token_id;
+  }
 
-  function getTokenIcon(token) {
-    return tokenIcons[token] || '';
+  function tokenLabel(item) {
+    return `${item.name} (${item.symbol})`;
+  }
+
+  function tokenIcon(item) {
+    return item.icon || '';
   }
 </script>
 
 <SearchSelect
-  items={allTokens}
-  placeholder="Search for a token..."
+  placeholder="Search for tokens..."
+  fetchData={fetchTokens}
+  itemKey={tokenKey}
+  itemLabel={tokenLabel}
+  itemIcon={tokenIcon}
   bind:selectedItems={selectedTokens}
-  itemLabel={token => token}
-  itemIcon={getTokenIcon}
 />
-
-

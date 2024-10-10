@@ -1,35 +1,34 @@
-<!-- TwitterUserSelector.svelte -->
 <script lang="ts">
-    import SearchSelect from './SearchSelect.svelte';
-  
-      let allUsers = [
-    { name: 'CZ Binance', handle: '@cz_binance' },          // CEO of Binance
-    { name: 'Vitalik Buterin', handle: '@VitalikButerin' },  // Co-founder of Ethereum
-    { name: 'PlanB', handle: '@100trillionUSD' },            // Bitcoin analyst, Stock-to-Flow model
-    { name: 'Michael Saylor', handle: '@saylor' },           // CEO of MicroStrategy, Bitcoin proponent
-    { name: 'Tyler Winklevoss', handle: '@tyler' },          // Co-founder of Gemini, Bitcoin investor
-    { name: 'Anthony Pompliano', handle: '@APompliano' },     // Crypto investor, podcast host
-    { name: 'Willy Woo', handle: '@woonomic' },              // On-chain Bitcoin analyst
-    { name: 'Peter McCormack', handle: '@PeterMcCormack' },   // Host of "What Bitcoin Did" podcast
-    { name: 'Raoul Pal', handle: '@RaoulGMI' },              // Founder of Real Vision, macro investor
-    { name: 'SBF', handle: '@SBF_FTX' },                     // Founder of FTX exchange
-    // Add more crypto KOLs as needed
-  ];
+  import SearchSelect from './SearchSelect.svelte';
 
-    let selectedUsers = [];
-  
-    // Function to get display label for each user
-    const userLabel = (user) => `${user.name} (${user.handle})`;
-  
-    // Function to get a unique key for each user
-    const userKey = (user) => user.handle;
-  </script>
-  
-  <SearchSelect
-    items={allUsers}
-    placeholder="Search for a User..."
-    bind:selectedItems={selectedUsers}
-    itemLabel={userLabel}
-    itemKey={userKey}
-  />
-  
+  let selectedUsers: any[] = [];
+
+  async function fetchUsers(query: string) {
+    const response = await fetch(`http://127.0.0.1:8000/users/?name=${encodeURIComponent(query)}`);
+    if (response.ok) {
+      return await response.json();
+    }
+    throw new Error("Error fetching users");
+  }
+
+  function userKey(item) {
+    return item.user_id;
+  }
+
+  function userLabel(item) {
+    return `${item.username} (${item.email})`; // Customize the label format
+  }
+
+  function userIcon(item) {
+    return item.avatar || ''; // Fallback for avatar image
+  }
+</script>
+
+<SearchSelect
+  placeholder="Search for users..."
+  fetchData={fetchUsers}
+  itemKey={userKey}
+  itemLabel={userLabel}
+  itemIcon={userIcon}
+  bind:selectedItems={selectedUsers}
+/>
