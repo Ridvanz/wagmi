@@ -37,16 +37,16 @@
 </script>
 
 <!-- Search and select component container -->
-<div class="flex  2xl:justify-between flex-col min-h-fit lg:max-h-[25rem] 2xl:h-full 2xl:max-h-full">
+<div class="flex 2xl:justify-between flex-col min-h-fit lg:max-h-[25rem] 2xl:h-full 2xl:max-h-full">
 	<div
 		class="flex flex-col h-fit flex-1 border w-full border-secondary-300 rounded-xl p-3 {selectedItems.length ==
 		1
-			? 'max-h-[69%] '
+			? 'max-h-[69%] 2xl:max-h-[80.5%]'
 			: selectedItems.length == 2
-				? 'max-h-[56%]'
+				? 'max-h-[56%] 2xl:max-h-[72.5%]'
 				: selectedItems.length >= 3
-					? 'max-h-[44%]'
-					: ' max-h-[78%]'}"
+					? 'max-h-[44%] 2xl:max-h-[65%]'
+					: ' max-h-[78%] 2xl:max-h-[86%]'}"
 	>
 		<!-- Search bar -->
 		<div class="relative w-full">
@@ -101,19 +101,20 @@
 	</div>
 
 	<!-- Spacer to push the Selected Items section to the bottom -->
-	<div class="  ">
+	<div
+		class={selectedItems.length == 1
+			? 'max-h-20'
+			: selectedItems.length == 2
+				? 'max-h-32'
+				: selectedItems.length >= 3
+					? 'max-h-44'
+					: 'max-h-max-h-56'}
+	>
 		<h3 class="text-black text-sm my-3">Selected Items:</h3>
 
 		<!-- Selected items section -->
 		<div
-			class="border min-h-fit rounded-xl border-secondary-300 text-tertiary w-full p-3 py-2 overflow-y-auto {selectedItems.length ==
-			1
-				? 'max-h-20'
-				: selectedItems.length == 2
-					? 'max-h-32'
-					: selectedItems.length >= 3
-						? 'max-h-44'
-						: 'max-h-max-h-56'}"
+			class="border min-h-fit rounded-xl border-secondary-300 text-tertiary w-full p-3 py-2 overflow-y-auto"
 		>
 			{#if selectedItems.length === 0}
 				<p class="text-tertiary">No items selected.</p>
